@@ -22,13 +22,14 @@
             },
             spinner: {
                 position: 'absolute',
-                width: '60px',
+                width: '40px',
                 padding: '10px',
+                backgroundSize: '20px',
                 backgroundColor: '#fff',
                 backgroundImage: 'url(http://i.imgur.com/uM2gq.gif)',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center center',
-                height: '60px',
+                height: '40px',
                 zIndex: '10001',
                 borderRadius: '6px',
                 boxShadow: '0 0px 6px #666'
@@ -41,6 +42,9 @@
             if (this === window) {
                 $this = $('html').first();
                 styles.spinner.position = 'fixed';
+                styles.spinner.width = '60px';
+                styles.spinner.height = '60px';
+                styles.spinner.backgroundSize = 'auto';
             }
 
             // options
