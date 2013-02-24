@@ -18,8 +18,7 @@
                 position: 'absolute',
                 opacity: '0.5',
                 zIndex: '10000',
-                backgroundColor: '#000',
-                borderRadius: '4px'
+                backgroundColor: '#000'
             },
             spinner: {
                 position: 'absolute',
