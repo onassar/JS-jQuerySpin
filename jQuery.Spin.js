@@ -36,6 +36,13 @@
         };
         this.each(function() {
 
+            // treat window object differently
+            var $this = $(this);
+            if (this === window) {
+                $this = $('body').first();
+                styles.spinner.position = 'fixed';
+            }
+
             // options
             var overlayStyles = $.extend(
                     styles.overlay, overlayStyleOptions || {}
@@ -45,34 +52,34 @@
                 );
 
             // tracking
-            var spinning = $(this).data('spinning') === true;
+            var spinning = $this.data('spinning') === true;
             if (spinning === true) {
-                $(this).data('spinning', false)
-                $(this).data('overlay').remove();
-                $(this).data('spinner').remove();
+                $this.data('spinning', false)
+                $this.data('overlay').remove();
+                $this.data('spinner').remove();
             } else {
 
                 // tracking
-                $(this).data('spinning', true)
+                $this.data('spinning', true)
 
                 // overlay node
                 var overlay = $('<div />');
-                $(this).data('overlay', overlay);
+                $this.data('overlay', overlay);
 
                 // spinner node (note call here as well as below to spinner.css)
                 var spinner = $('<div />');
-                $(this).data('spinner', spinner);
+                $this.data('spinner', spinner);
                 spinner.css(spinnerStyles);
 
                 // dom
-                $(this).append(overlay, spinner);
+                $this.append(overlay, spinner);
 
                 // determine position (changes depending on parent position)
-                var left = $(this).offset().left,
-                    top = $(this).offset().top,
-                    width = $(this).innerWidth(),
-                    height = $(this).innerHeight();
-                if ($(this).css('position') === 'relative') {
+                var left = $this.offset().left,
+                    top = $this.offset().top,
+                    width = $this.innerWidth(),
+                    height = $this.innerHeight();
+                if ($this.css('position') === 'relative') {
                     left = 0;
                     top = 0;
                 }
@@ -86,18 +93,18 @@
 
                 // spinner styles
                 spinnerStyles.left = (
-                    parseInt($(this).innerWidth()) -
+                    parseInt($this.innerWidth()) -
                     parseInt(spinner.innerWidth())
                 ) / 2;
-                if ($(this).css('position') !== 'relative') {
-                    spinnerStyles.left += $(this).offset().left;
+                if ($this.css('position') !== 'relative') {
+                    spinnerStyles.left += $this.offset().left;
                 }
                 spinnerStyles.top = (
-                    parseInt($(this).innerHeight()) -
+                    parseInt($this.innerHeight()) -
                     parseInt(spinner.innerHeight())
                 ) / 2;
-                if ($(this).css('position') !== 'relative') {
-                    spinnerStyles.top += $(this).offset().top;
+                if ($this.css('position') !== 'relative') {
+                    spinnerStyles.top += $this.offset().top;
                 }
                 spinner.css(spinnerStyles);
             }
