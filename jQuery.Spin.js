@@ -39,7 +39,7 @@
             // treat window object differently
             var $this = $(this);
             if (this === window) {
-                $this = $('body').first();
+                $this = $('html').first();
                 styles.spinner.position = 'fixed';
             }
 
@@ -99,11 +99,22 @@
                 if ($this.css('position') !== 'relative') {
                     spinnerStyles.left += $this.offset().left;
                 }
-                spinnerStyles.top = (
-                    parseInt($this.innerHeight()) -
-                    parseInt(spinner.innerHeight())
-                ) / 2;
-                if ($this.css('position') !== 'relative' && this === window) {
+
+                // if it's the window, don't use 'html' innerHeight
+                if (this === window) {
+                    spinnerStyles.top = (
+                        parseInt($(window).innerHeight()) -
+                        parseInt(spinner.innerHeight())
+                    ) / 2;
+                } else {
+                    spinnerStyles.top = (
+                        parseInt($this.innerHeight()) -
+                        parseInt(spinner.innerHeight())
+                    ) / 2;
+                }
+
+                // this won't matter for the case when this === window
+                if ($this.css('position') !== 'relative') {
                     spinnerStyles.top += $this.offset().top;
                 }
                 spinner.css(spinnerStyles);
