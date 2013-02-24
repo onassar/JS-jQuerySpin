@@ -103,7 +103,7 @@
                     parseInt($this.innerHeight()) -
                     parseInt(spinner.innerHeight())
                 ) / 2;
-                if ($this.css('position') !== 'relative') {
+                if ($this.css('position') !== 'relative' && this === window) {
                     spinnerStyles.top += $this.offset().top;
                 }
                 spinner.css(spinnerStyles);
