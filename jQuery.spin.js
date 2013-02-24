@@ -1,4 +1,16 @@
+/**
+ * jQuery Spin
+ * 
+ * Overlays desired DOM element(s) with a spinner, fading out the background.
+ * Nothing required other than the script.
+ * 
+ * @author Oliver Nassar <onassar@gmail.com>
+ */
+
+// preload spinner
 (new Image()).src = 'http://i.imgur.com/uM2gq.gif';
+
+// let's do this
 (function($){
     $.fn.spin = function(overlayStyleOptions, spinnerStyleOptions) {
         var styles = {
@@ -26,8 +38,12 @@
         this.each(function() {
 
             // options
-            var overlayStyles = $.extend(styles.overlay, overlayStyleOptions || {}),
-                spinnerStyles = $.extend(styles.spinner, spinnerStyleOptions || {});
+            var overlayStyles = $.extend(
+                    styles.overlay, overlayStyleOptions || {}
+                ),
+                spinnerStyles = $.extend(
+                    styles.spinner, spinnerStyleOptions || {}
+                );
 
             // tracking
             var spinning = $(this).data('spinning') === true;
