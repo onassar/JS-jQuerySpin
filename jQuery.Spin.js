@@ -83,7 +83,10 @@
                     top = $this.offset().top,
                     width = $this.innerWidth(),
                     height = $this.innerHeight();
-                if ($this.css('position') === 'relative') {
+                if (
+                    $this.css('position') === 'relative'
+                    || $this.css('position') === 'absolute'
+                ) {
                     left = 0;
                     top = 0;
                 }
@@ -100,7 +103,10 @@
                     parseInt($this.innerWidth()) -
                     parseInt(spinner.innerWidth())
                 ) / 2;
-                if ($this.css('position') !== 'relative') {
+                if (
+                    $this.css('position') !== 'relative'
+                    && $this.css('position') !== 'absolute'
+                ) {
                     spinnerStyles.left += $this.offset().left;
                 }
 
@@ -118,7 +124,10 @@
                 }
 
                 // this won't matter for the case when this === window
-                if ($this.css('position') !== 'relative') {
+                if (
+                    $this.css('position') !== 'relative'
+                    && $this.css('position') !== 'absolute'
+                ) {
                     spinnerStyles.top += $this.offset().top;
                 }
                 spinner.css(spinnerStyles);
