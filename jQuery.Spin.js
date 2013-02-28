@@ -12,6 +12,9 @@
 
 // let's do this
 (function($){
+    $.fn.isSpinning = function() {
+        return $(this).find('.js-spin-spinner').length > 0;
+    };
     $.fn.spin = function(overlayStyleOptions, spinnerStyleOptions) {
         var styles = {
             overlay: {
@@ -68,10 +71,12 @@
 
                 // overlay node
                 var overlay = $('<div />');
+                overlay.addClass('js-spin-overlay');
                 $this.data('overlay', overlay);
 
                 // spinner node (note call here as well as below to spinner.css)
                 var spinner = $('<div />');
+                overlay.addClass('js-spin-spinner');
                 $this.data('spinner', spinner);
                 spinner.css(spinnerStyles);
 
