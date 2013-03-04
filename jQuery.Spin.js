@@ -76,7 +76,7 @@
 
                 // spinner node (note call here as well as below to spinner.css)
                 var spinner = $('<div />');
-                overlay.addClass('js-spin-spinner');
+                spinner.addClass('js-spin-spinner');
                 $this.data('spinner', spinner);
                 spinner.css(spinnerStyles);
 
