@@ -35,7 +35,8 @@
                 height: '40px',
                 zIndex: '10001',
                 borderRadius: '6px',
-                boxShadow: '0 0px 6px #666'
+                // boxShadow: '0 0px 6px #666'
+                boxShadow: '0 2px 10px #444'
             }
         };
         this.each(function() {
