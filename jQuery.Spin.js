@@ -62,13 +62,13 @@
             // tracking
             var spinning = $this.data('spinning') === true;
             if (spinning === true) {
-                $this.data('spinning', false)
+                $this.data('spinning', false);
                 $this.data('overlay').remove();
                 $this.data('spinner').remove();
             } else {
 
                 // tracking
-                $this.data('spinning', true)
+                $this.data('spinning', true);
 
                 // overlay node
                 var overlay = $('<div />');
