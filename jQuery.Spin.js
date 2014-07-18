@@ -8,7 +8,7 @@
  */
 
 // preload spinner
-(new Image()).src = 'http://i.imgur.com/uM2gq.gif';
+(new Image()).src = '//i.imgur.com/uM2gq.gif';
 
 // let's do this
 (function($){
