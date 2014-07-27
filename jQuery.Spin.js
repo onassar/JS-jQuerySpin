@@ -29,7 +29,7 @@
                 padding: '10px',
                 backgroundSize: '20px',
                 backgroundColor: '#fff',
-                backgroundImage: 'url(http://i.imgur.com/uM2gq.gif)',
+                backgroundImage: 'url(//i.imgur.com/uM2gq.gif)',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center center',
                 height: '40px',
